@@ -1,0 +1,46 @@
+/* .ant-btn-default {
+  background: #ffffff;
+  border-color: #000;
+  border-radius: 100px;
+}
+.ant-input-outlined {
+  background: #ffffff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000;
+  border-radius: 100px;
+}
+
+.ant-input-search
+  > .ant-input-group
+  > .ant-input-group-addon:last-child
+  .ant-input-search-button {
+  border-start-end-radius: 100px;
+  border-end-end-radius: 100px;
+} */
+
+.ant-btn-primary {
+  color: #433520;
+  background: #f4f4f4;
+  border: 1px solid black;
+  font-weight: 600;
+  font-size: 12px;
+}
+.ant-btn-primary:hover {
+  background: #ffffff !important;
+  color: #01927c !important;
+}
+.ant-input-outlined {
+  background: #ffffff;
+  border: 1px solid black;
+}
+
+.ant-btn-default {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+  border: 1px solid #433520;
+}
+.ant-btn-default:hover {
+  background-color: #20c997 !important;
+  color: white !important;
+  border: 1px solid #20c997 !important;
+}
