@@ -13,11 +13,9 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div>
-      <div className="h-72 flex justify-evenly bg-[#433520] text-white leading-loose text-sm font-light">
-        <div>
-          <h1 className="text-2xl font-bold text-center mt-10 mb-5">
-            CÔNG TY TNHH DJISSA
-          </h1>
+      <div className="grid lg:grid-cols-2 sm:grid-cols-1 justify-items-center bg-[#433520] text-white leading-loose text-sm font-light">
+        <div className="my-10">
+          <h1 className="text-2xl font-bold mb-5">CÔNG TY TNHH DJISSA</h1>
           <div className="flex items-center gap-3">
             <AiFillEnvironment />
             <p>Address: 1K, Ngô Văn Sở, phường 13, quận 4, TPHCM</p>
@@ -40,20 +38,20 @@ const Footer = () => {
             <FaYoutube className="text-3xl p-1 text-white hover:bg-[#04937C] border border-solid border-white rounded-full" />
           </div>
         </div>
-        <div className="">
-          <h1 className="text-2xl font-bold mt-10 mb-5">Đăng ký nhận tin</h1>
+        <div className="my-10">
+          <h1 className="text-2xl font-bold mb-5">Đăng ký nhận tin</h1>
           <p>
             Nhận thông tin sản phẩm mới nhất, tin khuyến mãi và nhìu hơn nữa.
           </p>
           <Space.Compact className="w-full mt-2">
-            <Input defaultValue="Địa chỉ email" />
+            <Input defaultValue="Địa chỉ email" className="sm:w-[70%]" />
             <Button className="bg-[#01927C] text-white">Đăng ký</Button>
           </Space.Compact>
           <div>
             <img
               src="../../../public/imgs/logo/dathongbao.png"
               alt=""
-              className="w-2/5 mt-5"
+              className="mt-5"
             />
           </div>
         </div>

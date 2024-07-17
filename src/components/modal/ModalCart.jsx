@@ -1,53 +1,26 @@
-import { Modal, Table } from "antd";
+import { Modal } from "antd";
 import { useContext } from "react";
 import StoreContext from "../../store/store";
+import CartItem from "./CartItem";
+import { FaDollarSign } from "react-icons/fa";
 
 const ModalCart = () => {
-  const { isModalOpen, setIsModalOpen } = useContext(StoreContext);
+  const {
+    isModalOpen,
+    setIsModalOpen,
+    cartItem,
+    listRices,
+    getTotalCartAmount,
+  } = useContext(StoreContext);
+
+  const totalAmount = getTotalCartAmount();
   const handleOk = () => {
     setIsModalOpen(false);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const dataSource = [
-    {
-      key: "1",
-      name: "Mike",
-      age: 32,
-      address: "10 Downing Street",
-    },
-    {
-      key: "2",
-      name: "John",
-      age: 42,
-      address: "10 Downing Street",
-    },
-  ];
 
-  const columns = [
-    {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
-    },
-    {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
-    },
-    {
-      title: "Action",
-      dataIndex: "",
-      key: "x",
-      render: () => <a>Delete</a>,
-    },
-  ];
   return (
     <div>
       <Modal
@@ -56,8 +29,21 @@ const ModalCart = () => {
         onCancel={handleCancel}
         width={1000}
       >
-        <h1 className="border-b-2 text-4xl p-2">Giỏ hàng</h1>
-        <Table dataSource={dataSource} columns={columns} />
+        <div>
+          <h1 className="border-b-2 text-4xl p-2">Giỏ hàng</h1>
+        </div>
+        <div>
+          {listRices.map((item) => {
+            if (cartItem[item.id] !== 0) {
+              return <CartItem key={item.id} item={item} />;
+            }
+          })}
+        </div>
+        <div className="flex justify-end items-center border-t my-10 py-5">
+          <p className="text-2xl">Total:</p>
+          <FaDollarSign size={30} />
+          <h1 className="text-3xl text-red-500">{totalAmount}</h1>
+        </div>
       </Modal>
     </div>
   );

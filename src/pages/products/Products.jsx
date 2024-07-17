@@ -1,26 +1,27 @@
 import { FaDollarSign, FaHome } from "react-icons/fa";
+import { useContext, useState } from "react";
+import StoreContext from "../../store/store";
+import { Button, Input, Pagination, Rate, Slider, Space } from "antd";
+import { Link, useSearchParams } from "react-router-dom";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-import { useContext, useState } from "react";
-import StoreContext from "../../store/store";
-import { Button, Input, Rate, Slider, Space } from "antd";
-import { Link, useSearchParams } from "react-router-dom";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const { Search } = Input;
 
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 const Products = () => {
-  const { listRices, filterRice, setListRices } = useContext(StoreContext);
+  const { listRices, setListRices, filterRice } = useContext(StoreContext);
   const [disabled, setDisabled] = useState(false);
   const [params, setSearchParams] = useSearchParams();
+
+  // const cartItemAmount = cartItem[]
 
   const handleSearch = (value) => {
     setSearchParams({ search: value });
     const searchValue = value.trim().toLowerCase();
     const riceFilter = listRices.filter((item) =>
-      item.name.toLocaleLowerCase().includes(searchValue)
+      item.name.toLowerCase().includes(searchValue)
     );
     setListRices(value !== "" ? riceFilter : filterRice);
   };
@@ -43,29 +44,35 @@ const Products = () => {
                 key={item.id}
                 className=" border border-1 w-5/6 rounded-lg px-5"
               >
-                <Link to="/san-pham/:id">
+                <Link to={`/san-pham/${item.id}`}>
                   <img
                     src={item.image}
                     alt={item.image}
                     className="w-4/5 m-auto hover:scale-110 "
                   />
                   <p>Còn hàng</p>
-                  <Rate allowHalf defaultValue={4.5} className="my-2" />
+                  <Rate allowHalf defaultValue={item.rating} className="my-2" />
                   <p className="font-bold text-sm">{item.name}</p>
                 </Link>
-                <div className="flex justify-between items-center">
+                <div>
                   <div className="flex justify-start items-center">
                     <FaDollarSign className="text-xl" />
                     <b className="text-sm text-red-600 my-5">{item.price}</b>
                   </div>
-                  <Button className="w-[55%] text-center">
-                    Thêm giỏ
-                    <AiOutlineShoppingCart className="text-xl" />
-                  </Button>
+                  <div className="flex justify-center items-center">
+                    <Button className="w-[40%] mb-5 ">
+                      <Link to={`/san-pham/${item.id}`}>Mua hàng</Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             );
           })}
+          <div></div>
+          <div>
+            <Pagination align="center" defaultCurrent={1} total={50} />
+          </div>
+          <div></div>
         </div>
         <div className="w-[15%] mb-10">
           <div className=" mb-5">

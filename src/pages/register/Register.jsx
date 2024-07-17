@@ -32,7 +32,6 @@ const Register = () => {
       name: name,
       password: password,
     };
-    console.log("🚀 ~ handleSubmit ~ newUser:", newUser);
   };
   return (
     <div>

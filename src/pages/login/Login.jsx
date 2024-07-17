@@ -29,7 +29,7 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="h-[50%] w-1/4 border-1 rounded-lg bg-slate-200 absolute top-52 left-[40%] p-5">
+      <div className="h-[450px] w-[450px] border-1 rounded-lg bg-slate-200 absolute top-52 left-[40%] p-5">
         <div className="mb-10">
           <h1 className="text-3xl mb-2">LOGIN</h1>
           <hr className="w-2/6 mb-3 border-2 border-[#433520]" />

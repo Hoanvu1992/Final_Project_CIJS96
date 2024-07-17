@@ -79,3 +79,5 @@ const newLists = [
       "Nói đến ẩm thực Việt Nam phải nhắc đến phở, bún, hủ tiếu, bánh căn, bánh bèo, bánh xèo, cơm tấm, cơm lam, cơm nị, cơm cháy chà bông, ... Đây là những món ăn được chế biến từ gạo gắn bó lâu đời với người Việt.",
   },
 ];
+
+export default newLists;

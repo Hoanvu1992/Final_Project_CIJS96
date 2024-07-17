@@ -1,4 +1,4 @@
-import { Dropdown, Button, Space } from "antd";
+import { Dropdown, Button } from "antd";
 import { FaUser } from "react-icons/fa6";
 import { FaPhoneVolume } from "react-icons/fa";
 import { AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
@@ -30,9 +30,10 @@ const items = [
 ];
 
 const Header = () => {
-  const { isModalOpen, setIsModalOpen } = useContext(StoreContext);
+  const { isModalOpen, setIsModalOpen, listRices, cartItem } =
+    useContext(StoreContext);
   const [isButtonVisible, setIsButtonVisible] = useState(false);
-  const [isTagP, setTagP] = useState(true);
+  const [showUser, setShowUser] = useState(true);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -40,12 +41,15 @@ const Header = () => {
     if (users) {
       setUsers(users);
       setIsButtonVisible(true);
+    } else {
+      setShowUser(false);
+      setIsButtonVisible(false);
     }
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("users");
-    setTagP(false);
+    setShowUser(false);
     setIsButtonVisible(false); // Ẩn nút sau khi nhấn
   };
 
@@ -53,15 +57,13 @@ const Header = () => {
     setIsModalOpen(true);
   };
   return (
-    <div className="flex gap-24 justify-center items-center h-16">
-      <div className="w-16 h-14">
+    <div className="grid grid-cols-3 sm:gap-3 gap-24 justify-center items-center justify-items-center my-2">
+      <div className="w-16 sm:w-16 h-14">
         <img
           src="../../../public/imgs/logo/photo_2024-06-01 15_06_00.jpeg"
           alt=""
         />
       </div>
-      {/* Search */}
-      <div className="w-1/5"></div>
       {/* hotline */}
       <div className="h-12 w-44 flex items-center bg-[#E8F9F7] border border-black rounded">
         <div className="text-3xl mx-2 text-[#01927C] ">
@@ -75,11 +77,11 @@ const Header = () => {
         </div>
       </div>
       {/** icon */}
-      <div className="flex gap-3 w-1/6">
-        {isTagP && (
-          <p className="text-center text-white w-[20%] p-1 ">
+      <div className="flex gap-3">
+        {showUser && (
+          <div className="text-center p-1 border border-[#01927C] rounded-full bg-[#E8F9F7]">
             {users.userName}
-          </p>
+          </div>
         )}
         <Dropdown
           menu={{
@@ -94,7 +96,14 @@ const Header = () => {
         <div className="relative" onClick={showModal}>
           <AiOutlineShoppingCart className="text-4xl text-black bg-[#FEE5C7] hover:bg-[#01927C] hover:text-white rounded-full p-2" />
           <span className="bg-red-500 text-white text-sm w-5 h-5 rounded-full flex justify-center items-center absolute -top-1 -right-1">
-            0
+            {listRices.map((item) => {
+              const cartItemAmount = cartItem[item.id];
+              return (
+                <div key={item.id}>
+                  {cartItemAmount > 0 && ` ${cartItemAmount}`}
+                </div>
+              );
+            })}
           </span>
         </div>
         {isButtonVisible && <Button onClick={handleLogout}>Đăng xuất</Button>}

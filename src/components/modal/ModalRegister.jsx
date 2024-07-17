@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Modal, Form, Input, Button } from "antd";
+import { useContext, useState } from "react";
+import { Modal, Form, Input, Button, notification } from "antd";
+import StoreContext from "../../store/store";
 
 const formItemLayout = {
   labelCol: {
@@ -21,18 +22,33 @@ const formItemLayout = {
 };
 
 const ModalRegister = () => {
+  const { authUser, setAuthUser } = useContext(StoreContext);
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const [modal2Open, setModal2Open] = useState(false);
   const [form] = Form.useForm();
-  const handleSubmit = (value) => {
-    console.log("🚀 ~ handleSubmit ~ handleSubmit:", handleSubmit);
-    console.log("🚀 ~ handleSubmit ~ value:", value);
-    if (value.password === value.confirm) {
-      alert("Đăng ký thành công");
+  const handleSubmit = () => {
+    const newUser = [
+      {
+        userName: name,
+        passWord: password,
+      },
+    ];
+    localStorage.setItem("newUsers", JSON.stringify(newUser));
+    if (password === confirm) {
+      notification.success({
+        message: "Đăng ký thành công",
+      });
+      setAuthUser(newUser);
       setModal2Open(false);
     } else {
-      alert("Mật khẩu không khớp");
+      notification.error({
+        message: "Đăng ký không thành công",
+      });
     }
   };
+
   return (
     <div>
       <Button
@@ -45,7 +61,7 @@ const ModalRegister = () => {
       <Modal
         centered
         open={modal2Open}
-        onOk={() => setModal2Open(false)}
+        onOk={handleSubmit} // setModal2Open(false)}
         onCancel={() => setModal2Open(false)}
       >
         <div>
@@ -77,7 +93,7 @@ const ModalRegister = () => {
                 },
               ]}
             >
-              <Input />
+              <Input onChange={(e) => setName(e.target.value)} />
             </Form.Item>
 
             <Form.Item
@@ -91,7 +107,7 @@ const ModalRegister = () => {
               ]}
               hasFeedback
             >
-              <Input.Password />
+              <Input.Password onChange={(e) => setPassword(e.target.value)} />
             </Form.Item>
 
             <Form.Item
@@ -118,7 +134,7 @@ const ModalRegister = () => {
                 }),
               ]}
             >
-              <Input.Password />
+              <Input.Password onChange={(e) => setConfirm(e.target.value)} />
             </Form.Item>
           </Form>
         </div>

@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import StoreContext from "../../store/store";
 import { Rate } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FaDollarSign } from "react-icons/fa";
 
 const Tab3 = () => {
   const { listRices } = useContext(StoreContext);
+  const { id } = useParams();
   const navigate = useNavigate();
   return (
-    <div className="flex justify-center items-center gap-10">
+    <div className="mx-[20%] grid grid-cols-3 justify-items-center gap-10">
       {listRices
         .filter((item) => {
           return item.id < 7 && item.id > 4;
@@ -17,8 +18,8 @@ const Tab3 = () => {
           return (
             <button
               key={item.id}
-              className="w-[20%] border border-1 rounded-lg px-5 my-5 bg-[#F4F4F4] text-start"
-              onClick={() => navigate("/san-pham/1")}
+              className="border border-1 rounded-lg px-5 my-5 bg-[#F4F4F4] text-start"
+              onClick={() => navigate(`/san-pham/${item.id}`)}
             >
               <img
                 src={item.image}
@@ -26,7 +27,7 @@ const Tab3 = () => {
                 className="w-[50%] m-auto hover:scale-110"
               />
               <p>Còn hàng</p>
-              <Rate allowHalf defaultValue={5} className="my-2" />
+              <Rate allowHalf defaultValue={item.rating} className="my-2" />
               <p className="font-bold text-sm h-[50px] py-5">{item.name}</p>
               <div className="flex justify-start items-center">
                 <FaDollarSign className="text-xl" />
