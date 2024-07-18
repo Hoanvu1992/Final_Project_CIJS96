@@ -36,7 +36,7 @@ const ModalRegister = () => {
       },
     ];
     localStorage.setItem("newUsers", JSON.stringify(newUser));
-    if (password === confirm) {
+    if (password === confirm && name !== "") {
       notification.success({
         message: "Đăng ký thành công",
       });
@@ -44,7 +44,7 @@ const ModalRegister = () => {
       setModal2Open(false);
     } else {
       notification.error({
-        message: "Đăng ký không thành công",
+        message: "Đăng ký thất bại",
       });
     }
   };
@@ -61,7 +61,7 @@ const ModalRegister = () => {
       <Modal
         centered
         open={modal2Open}
-        onOk={handleSubmit} // setModal2Open(false)}
+        onOk={handleSubmit}
         onCancel={() => setModal2Open(false)}
       >
         <div>

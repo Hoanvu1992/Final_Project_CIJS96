@@ -1,14 +1,13 @@
+import "./Header.css";
 import { Dropdown, Button } from "antd";
 import { FaUser } from "react-icons/fa6";
 import { FaPhoneVolume } from "react-icons/fa";
 import { AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
-import "./Header.css";
 import { Link } from "react-router-dom";
-import { BiPencil, BiSolidKey } from "react-icons/bi";
+import { BiSolidKey } from "react-icons/bi";
 import { useContext, useEffect, useState } from "react";
 import StoreContext from "../../store/store";
 import ModalCart from "../modal/ModalCart";
-
 const items = [
   {
     key: "1",
@@ -16,14 +15,6 @@ const items = [
       <Link to="/dang-nhap" className="flex justify-start items-center gap-2">
         <BiSolidKey />
         Đăng nhập
-      </Link>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <Link to="/dang-ky" className="flex justify-start items-center gap-2">
-        <BiPencil /> Đăng ký
       </Link>
     ),
   },
@@ -93,7 +84,7 @@ const Header = () => {
           <FaUser />
         </Dropdown>
         <AiFillHeart className="text-4xl p-2 text-black bg-[#F6F3E3] hover:bg-[#01927C] hover:text-white rounded-full" />
-        <div className="relative" onClick={showModal}>
+        <button className="relative" onClick={showModal}>
           <AiOutlineShoppingCart className="text-4xl text-black bg-[#FEE5C7] hover:bg-[#01927C] hover:text-white rounded-full p-2" />
           <span className="bg-red-500 text-white text-sm w-5 h-5 rounded-full flex justify-center items-center absolute -top-1 -right-1">
             {listRices.map((item) => {
@@ -105,7 +96,7 @@ const Header = () => {
               );
             })}
           </span>
-        </div>
+        </button>
         {isButtonVisible && <Button onClick={handleLogout}>Đăng xuất</Button>}
         {isModalOpen && <ModalCart />}
       </div>

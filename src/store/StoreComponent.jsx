@@ -54,42 +54,25 @@ const StoreComponent = (props) => {
   return (
     <div>
       <StoreContext.Provider
-        value={useMemo(
-          () => ({
-            listRices,
-            setListRices,
-            listServices,
-            authUser,
-            filterRice,
-            setFilterRice,
-            isModalOpen,
-            setIsModalOpen,
-            listTintuc,
-            cartItem,
-            setCartItem,
-            addToCart,
-            removeCart,
-            cartItemAmount,
-            updateCartItemCount,
-            getTotalCartAmount,
-            setAuthUser,
-          }),
-          [
-            listRices,
-            listServices,
-            authUser,
-            filterRice,
-            isModalOpen,
-            listTintuc,
-            cartItem,
-            addToCart,
-            removeCart,
-            cartItemAmount,
-            updateCartItemCount,
-            getTotalCartAmount,
-            setAuthUser,
-          ]
-        )}
+        value={{
+          listRices,
+          setListRices,
+          listServices,
+          authUser,
+          filterRice,
+          setFilterRice,
+          isModalOpen,
+          setIsModalOpen,
+          listTintuc,
+          cartItem,
+          setCartItem,
+          addToCart,
+          removeCart,
+          cartItemAmount,
+          updateCartItemCount,
+          getTotalCartAmount,
+          setAuthUser,
+        }}
       >
         {props.children}
       </StoreContext.Provider>

@@ -12,7 +12,6 @@ import Contact from "./pages/contact/Contact.jsx";
 import StoreComponent from "./store/StoreComponent.jsx";
 import Notfound from "./pages/notfound/NotFound.jsx";
 import Login from "./pages/login/Login.jsx";
-import Register from "./pages/register/Register.jsx";
 import ProductBrokenRice from "./pages/products/productDetail/ProductBrokenRice.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -21,7 +20,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/dang-nhap" element={<Login />} />
-        <Route path="/dang-ky" element={<Register />} />
         <Route path="/home" element={<Home />} />
         <Route path="/gioi-thieu" element={<Introduce />} />
         <Route path="/san-pham" element={<Products />} />

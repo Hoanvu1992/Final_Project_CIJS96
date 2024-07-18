@@ -8,8 +8,6 @@ import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 
 const { Search } = Input;
-
-const onSearch = (value, _e, info) => console.log(info?.source, value);
 const Products = () => {
   const { listRices, setListRices, filterRice } = useContext(StoreContext);
   const [disabled, setDisabled] = useState(false);
@@ -79,7 +77,6 @@ const Products = () => {
             <Space direction="vertical" className=" border-gray-300">
               <Search
                 placeholder="Tìm sản phẩm ..."
-                onSearch={onSearch}
                 onChange={(e) => handleSearch(e.target.value)}
                 style={{ width: 250 }}
               />
