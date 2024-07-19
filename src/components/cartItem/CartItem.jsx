@@ -30,7 +30,7 @@ const CartItem = () => {
         <button onClick={increaseQuantity}>+</button>
       </div>
       <button onClick={resetQuantity}>Đặt lại số lượng</button>
-      <button onClick={() => addToCart(name, quantity)}>Add to Cart</button>
+      <button onClick={() => addToCart(quantity)}>Add to Cart</button>
     </div>
   );
 };

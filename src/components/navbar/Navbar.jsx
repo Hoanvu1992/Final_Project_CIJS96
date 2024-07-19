@@ -22,19 +22,19 @@ const items = [
 
 const Navbar = () => {
   return (
-    <div className="flex gap-10 justify-center items-center bg-[#433520] text-white text-sm h-10 ">
-      <div className="bg-[#01927C] border border-[#01927C] rounded-full w-36 text-center font-bold">
+    <div className="flex h-10 items-center justify-center gap-10 bg-[#433520] text-sm text-white">
+      <div className="w-36 rounded-full border border-[#01927C] bg-[#01927C] text-center font-bold">
         <Dropdown
           menu={{
             items,
           }}
         >
-          <a onClick={(e) => e.preventDefault()}>
+          <button onClick={(e) => e.preventDefault()}>
             <Space style={{ cursor: "pointer" }}>
               <BsJustify />
               Danh mục
             </Space>
-          </a>
+          </button>
         </Dropdown>
       </div>
       <Link to="/">Trang chủ</Link>

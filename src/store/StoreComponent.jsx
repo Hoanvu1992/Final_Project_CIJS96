@@ -1,7 +1,7 @@
 import StoreContext from "./store.js";
 import riceLists from "../data/riceLists.js";
 import serviceLists from "../data/serviceList.js";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import newLists from "../data/newsLists.js";
 
 const getDefaultCart = () => {

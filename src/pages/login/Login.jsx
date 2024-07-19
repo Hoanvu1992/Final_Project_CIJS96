@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = (value) => {
     const user = authUser.find(
       (item) =>
-        value.username === item.userName && value.password === item.passWord
+        value.username === item.userName && value.password === item.passWord,
     );
 
     user
@@ -29,10 +29,10 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="h-[450px] w-[450px] border-1 rounded-lg bg-slate-200 absolute top-52 left-[40%] p-5">
+      <div className="border-1 absolute left-[40%] top-52 h-[450px] w-[450px] rounded-lg bg-slate-200 p-5">
         <div className="mb-10">
-          <h1 className="text-3xl mb-2">LOGIN</h1>
-          <hr className="w-2/6 mb-3 border-2 border-[#433520]" />
+          <h1 className="mb-2 text-3xl">LOGIN</h1>
+          <hr className="mb-3 w-2/6 border-2 border-[#433520]" />
           <h3 className="text-2xl">Hello! Welcome back.</h3>
         </div>
         <div>
@@ -83,15 +83,15 @@ const Login = () => {
             <Form.Item>
               <Button
                 htmlType="submit"
-                className="login-form-button w-2/5 text-xl py-5 bg-[#A5D9D0] hover:bg-[#04937C]"
+                className="login-form-button w-2/5 bg-[#A5D9D0] py-5 text-xl hover:bg-[#04937C]"
               >
                 Log in
               </Button>
             </Form.Item>
           </Form>
         </div>
-        <div className="flex justify-center items-center">
-          Don't have an account ?<ModalRegister />
+        <div className="flex items-center justify-center">
+          Don`t have an account ?<ModalRegister />
         </div>
       </div>
     </div>

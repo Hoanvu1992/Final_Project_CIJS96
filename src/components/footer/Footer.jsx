@@ -8,14 +8,13 @@ import { FiFacebook } from "react-icons/fi";
 import { FaYoutube } from "react-icons/fa";
 import { SiZalo } from "react-icons/si";
 import { Button, Input, Space } from "antd";
-import "./Footer.css";
 
 const Footer = () => {
   return (
     <div>
-      <div className="grid lg:grid-cols-2 sm:grid-cols-1 justify-items-center bg-[#433520] text-white leading-loose text-sm font-light">
+      <div className="grid justify-items-center bg-[#433520] text-sm font-light leading-loose text-white sm:grid-cols-1 lg:grid-cols-2">
         <div className="my-10">
-          <h1 className="text-2xl font-bold mb-5">CÔNG TY TNHH DJISSA</h1>
+          <h1 className="mb-5 text-2xl font-bold">CÔNG TY TNHH DJISSA</h1>
           <div className="flex items-center gap-3">
             <AiFillEnvironment />
             <p>Address: 1K, Ngô Văn Sở, phường 13, quận 4, TPHCM</p>
@@ -28,22 +27,22 @@ const Footer = () => {
             <AiFillMail />
             <p>Mail: info@djissa.vn</p>
           </div>
-          <div className="flex items-center gap-3 mb-3">
+          <div className="mb-3 flex items-center gap-3">
             <AiFillTags />
             <p>TaxCode: 0318281539</p>
           </div>
           <div className="flex gap-3">
-            <FiFacebook className="text-3xl p-1 text-white hover:bg-[#04937C] border border-solid border-white rounded-full" />
-            <SiZalo className="text-3xl p-1 text-white hover:bg-[#04937C] border border-solid border-white rounded-full" />
-            <FaYoutube className="text-3xl p-1 text-white hover:bg-[#04937C] border border-solid border-white rounded-full" />
+            <FiFacebook className="rounded-full border border-solid border-white p-1 text-3xl text-white hover:bg-[#04937C]" />
+            <SiZalo className="rounded-full border border-solid border-white p-1 text-3xl text-white hover:bg-[#04937C]" />
+            <FaYoutube className="rounded-full border border-solid border-white p-1 text-3xl text-white hover:bg-[#04937C]" />
           </div>
         </div>
         <div className="my-10">
-          <h1 className="text-2xl font-bold mb-5">Đăng ký nhận tin</h1>
+          <h1 className="mb-5 text-2xl font-bold">Đăng ký nhận tin</h1>
           <p>
             Nhận thông tin sản phẩm mới nhất, tin khuyến mãi và nhìu hơn nữa.
           </p>
-          <Space.Compact className="w-full mt-2">
+          <Space.Compact className="mt-2 w-full">
             <Input defaultValue="Địa chỉ email" className="sm:w-[70%]" />
             <Button className="bg-[#01927C] text-white">Đăng ký</Button>
           </Space.Compact>

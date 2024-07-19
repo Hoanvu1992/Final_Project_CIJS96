@@ -9,14 +9,14 @@ const Introduce = () => {
       <Header />
       <Navbar />
       <div className="relative h-10 border-y py-2">
-        <div className="flex gap-3 items-center absolute left-80">
+        <div className="absolute left-80 flex items-center gap-3">
           <FaHome />
           <p className="text-sm">Trang chủ/ Giới thiệu</p>
         </div>
       </div>
-      <div className="flex justify-center ">
-        <div className="text-start w-1/3 my-10 mx-10">
-          <div className="text-3xl font-bold mb-5">
+      <div className="flex justify-center">
+        <div className="mx-10 my-10 w-1/3 text-start">
+          <div className="mb-5 text-3xl font-bold">
             <span className="text-[#01927C]">VỀ</span>
             <span> DJISSA CHÚNG TÔI</span>
           </div>
@@ -37,14 +37,14 @@ const Introduce = () => {
           <img
             src="../../../public/imgs/hinh_anh/about.jpg"
             alt=""
-            className="block justify-center items-center w-full rounded-tr-full"
+            className="block w-full items-center justify-center rounded-tr-full"
           />
         </div>
       </div>
-      <div className="bg-[#EEEEEE] text-center flex justify-center">
-        <div className="w-2/3 my-10">
-          <h1 className="text-3xl mb-5">
-            " Gạo ngon nhất vì sức khỏe con người "
+      <div className="flex justify-center bg-[#EEEEEE] text-center">
+        <div className="my-10 w-2/3">
+          <h1 className="mb-5 text-3xl">
+            Gạo ngon nhất vì sức khỏe con người .
           </h1>
           <div>
             <p>
