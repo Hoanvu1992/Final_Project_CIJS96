@@ -1,10 +1,9 @@
-import Comtam from "../../public/imgs/Product_Baobi/Box_DJISSA35_Truoc.png";
 const riceLists = [
   {
     id: 1,
     name: "VIETNAM WHITE RICE 35% BROKEN VIETNAM RIZ BLANC 35% BRISURE",
     price: 15000,
-    image: { Comtam },
+    image: "../../public/imgs/Product_Baobi/Box_DJISSA35_Truoc.png",
     rating: 1.5,
   },
   {
