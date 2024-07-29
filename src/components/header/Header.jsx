@@ -4,21 +4,9 @@ import { FaUser } from "react-icons/fa6";
 import { FaPhoneVolume } from "react-icons/fa";
 import { AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { BiSolidKey } from "react-icons/bi";
 import { useContext, useEffect, useState } from "react";
 import StoreContext from "../../store/store";
 import ModalCart from "../modal/ModalCart";
-const items = [
-  {
-    key: "1",
-    label: (
-      <Link to="/dang-nhap" className="flex justify-start items-center gap-2">
-        <BiSolidKey />
-        Đăng nhập
-      </Link>
-    ),
-  },
-];
 
 const Header = () => {
   const { isModalOpen, setIsModalOpen, listRices, cartItem } =
@@ -29,40 +17,57 @@ const Header = () => {
 
   useEffect(() => {
     const users = JSON.parse(localStorage.getItem("users"));
-    if (users) {
-      setUsers(users);
-      setIsButtonVisible(true);
-    } else {
-      setShowUser(false);
-      setIsButtonVisible(false);
-    }
+    users
+      ? (setUsers(users), setIsButtonVisible(true))
+      : (setShowUser(false), setIsButtonVisible(false));
   }, []);
-
   const handleLogout = () => {
     localStorage.removeItem("users");
     setShowUser(false);
-    setIsButtonVisible(false); // Ẩn nút sau khi nhấn
+    setIsButtonVisible(false);
   };
-
   const showModal = () => {
     setIsModalOpen(true);
   };
+  const items = [
+    {
+      key: "1",
+      label: (
+        <div>
+          {!isButtonVisible ? (
+            <Link
+              to="/dang-nhap"
+              className="align-items-center flex justify-center"
+            >
+              <Button className="border-none">Đăng nhập</Button>
+            </Link>
+          ) : (
+            <Button className="border-none" onClick={handleLogout}>
+              Đăng xuất
+            </Button>
+          )}
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <div className="grid grid-cols-3 sm:gap-3 gap-24 justify-center items-center justify-items-center my-2">
-      <div className="w-16 sm:w-16 h-14">
+    <div className="my-2 grid grid-cols-3 items-center justify-center justify-items-center gap-24 sm:gap-3">
+      <div className="h-14 w-16 sm:w-16">
         <img
           src="../../../public/imgs/logo/photo_2024-06-01 15_06_00.jpeg"
           alt=""
         />
       </div>
+
       {/* hotline */}
-      <div className="h-12 w-44 flex items-center bg-[#E8F9F7] border border-black rounded">
-        <div className="text-3xl mx-2 text-[#01927C] ">
+      <div className="flex h-12 w-44 items-center rounded border border-black bg-[#E8F9F7]">
+        <div className="mx-2 text-3xl text-[#01927C]">
           <FaPhoneVolume />
         </div>
-        <div className="text-sm text-center">
+        <div className="text-center text-sm">
           <p>Hotline</p>
-          <a href="tel:02871099188" className="text-[#01927C] font-bold">
+          <a href="tel:02871099188" className="font-bold text-[#01927C]">
             (028)710.99188
           </a>
         </div>
@@ -70,7 +75,7 @@ const Header = () => {
       {/** icon */}
       <div className="flex gap-3">
         {showUser && (
-          <div className="text-center p-1 border border-[#01927C] rounded-full bg-[#E8F9F7]">
+          <div className="rounded-full border border-[#01927C] bg-[#E8F9F7] p-1 text-center">
             {users.userName}
           </div>
         )}
@@ -79,14 +84,14 @@ const Header = () => {
             items,
           }}
           placement="bottomLeft"
-          className="text-4xl p-2 text-black bg-[#E8F9F7] hover:bg-[#01927C] hover:text-white rounded-full"
+          className="rounded-full bg-[#E8F9F7] p-2 text-4xl text-black hover:bg-[#01927C] hover:text-white"
         >
           <FaUser />
         </Dropdown>
-        <AiFillHeart className="text-4xl p-2 text-black bg-[#F6F3E3] hover:bg-[#01927C] hover:text-white rounded-full" />
+        <AiFillHeart className="rounded-full bg-[#F6F3E3] p-2 text-4xl text-black hover:bg-[#01927C] hover:text-white" />
         <button className="relative" onClick={showModal}>
-          <AiOutlineShoppingCart className="text-4xl text-black bg-[#FEE5C7] hover:bg-[#01927C] hover:text-white rounded-full p-2" />
-          <span className="bg-red-500 text-white text-sm w-5 h-5 rounded-full flex justify-center items-center absolute -top-1 -right-1">
+          <AiOutlineShoppingCart className="rounded-full bg-[#FEE5C7] p-2 text-4xl text-black hover:bg-[#01927C] hover:text-white" />
+          <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-sm text-white">
             {listRices.map((item) => {
               const cartItemAmount = cartItem[item.id];
               return (
@@ -97,7 +102,6 @@ const Header = () => {
             })}
           </span>
         </button>
-        {isButtonVisible && <Button onClick={handleLogout}>Đăng xuất</Button>}
         {isModalOpen && <ModalCart />}
       </div>
     </div>

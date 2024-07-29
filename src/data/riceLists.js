@@ -24,14 +24,14 @@ const riceLists = [
     id: 4,
     name: "VIETNAM NATURAL PARFUM LONG RICE",
     price: 25000,
-    image: "../../public/imgs/Product_Baobi/Rice paking 03_02-02.png",
+    image: "../../public/imgs/Product_Baobi/Ricepaking03_02-02.png",
     rating: 1.5,
   },
   {
     id: 5,
     name: "PREMIUM QUALITY VIETNAM ST25 RICE",
     price: 30000,
-    image: "../../public/imgs/Product_Baobi/Rice paking 03_02-01.png",
+    image: "../../public/imgs/Product_Baobi/Ricepaking03_02-01.png",
     rating: 1.5,
   },
 
@@ -39,7 +39,7 @@ const riceLists = [
     id: 6,
     name: "VIETNAM JASMINE RICE RIZ VIETNAM JASMIN 5KG",
     price: 35000,
-    image: "../../public/imgs/Product_Baobi/Rice paking 03_02-03.png",
+    image: "../../public/imgs/Product_Baobi/Ricepaking03_02-03.png",
     rating: 1.5,
   },
 ];

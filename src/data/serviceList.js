@@ -2,7 +2,7 @@ const serviceLists = [
   {
     id: 1,
     name: "Dịch vụ thiết kế bao bì",
-    image: "../../public/imgs/Product_Baobi/Rice paking 03_02-03.png",
+    image: "../../public/imgs/Product_Baobi/Ricepaking03_02-03.png",
     description:
       "Ngoài những chức năng chính của bao bì như bảo vệ sản phẩm, cung cấp thông tin,… thì thiết kế bao bì gạo đẹp, tốt, ấn tượng là một trong những điều cần thiết trong marketing mà các nhà kinh doanh xuất khẩu gạo ở Việt Nam đang thực hiện.",
   },
